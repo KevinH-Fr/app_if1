@@ -23,7 +23,19 @@
 
   <div>
     <%= form.label :ecurie, style: "display: block" %>
-    <%= form.text_field :ecurie %>
+    <%= form.select(:ecurie, options_for_select([
+                          ["Mercedes", "Mercedes"], ["RedBull", "RedBull"], ["Ferrari", "Ferrari"]], 
+                            :selected => form.object.ecurie), 
+                            :include_blank => true) %>
+  
+ <%# si pas d'ecurie selectionnée, image blank, sinon logo ecurie %>
+    <% if pilote.ecurie.blank?%>
+      <%= image_tag 'no-image.png', alt: 'icon', width: '200' %>
+    <% else %>
+      <%= image_tag pilote.ecurie + '.png', alt: 'icon', width: '200' %>
+    <% end %>
+    
+
   </div>
 
   <div>

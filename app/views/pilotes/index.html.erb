@@ -10,7 +10,7 @@
     <thead class="table-dark">
       <tr>
         <th>Nom</th>
-        <th>Ecurie</th>
+        <th colspan="2">Ecurie</th>
         <th>Division</th>
         <th>Statut</th>
         <th colspan="3">Actions</th>
@@ -23,8 +23,19 @@
       <% @pilotes.each do |pilote| %>
             <tr>
             
-            <td> <%= link_to pilote.nom, pilote %> </td>
-              <td> <%= pilote.ecurie %>    </td>
+              <td> <%= link_to pilote.nom, pilote %> </td>
+              <td> <%= pilote.ecurie %>    </td> 
+              <td>
+                <%# si pas d'ecurie selectionnée, image blank, sinon logo ecurie %>
+                  <% if pilote.ecurie.blank?%>
+                    <%= image_tag 'no-image.png', alt: 'icon', width: '200' %>
+                  <% else %>
+                    <%= image_tag pilote.ecurie + '.png', alt: 'icon', width: '200' %>
+                  <% end %>
+              </td>
+            
+              
+              <td> <%= pilote.division %>  </td>
               <td> <%= pilote.statut %>    </td>
 
                 <td width="5%">
