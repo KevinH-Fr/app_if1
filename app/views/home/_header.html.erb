@@ -40,6 +40,11 @@
         </li>
 
         <li class="nav-item">
+          <%= link_to 'Résultats',
+          resultats_path, class:"nav-link" %> 
+        </li>
+
+        <li class="nav-item">
           <%= link_to 'Déconnexion',
             destroy_user_session_path, method: :delete, class:"nav-link" %> 
         </li>

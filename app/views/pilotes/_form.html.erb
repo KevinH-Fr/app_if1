@@ -22,11 +22,14 @@
   </div>
 
   <div>
+  <p>
     <%= form.label :ecurie, style: "display: block" %>
     <%= form.select(:ecurie, options_for_select([
                           ["Mercedes", "Mercedes"], ["RedBull", "RedBull"], ["Ferrari", "Ferrari"]], 
                             :selected => form.object.ecurie), 
                             :include_blank => true) %>
+ </p>
+    
   
  <%# si pas d'ecurie selectionnée, image blank, sinon logo ecurie %>
     <% if pilote.ecurie.blank?%>
@@ -42,8 +45,10 @@
     <%= form.label :division, style: "display: block" %>
     <%= form.text_field :division %>
   </div>
-
+ 
+  <br/>
+ 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Valider", class:"btn btn-primary" %>
   </div>
 <% end %>

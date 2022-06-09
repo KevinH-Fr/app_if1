@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :equipes
+  resources :ecuries
+  resources :resultats
   resources :events
   resources :evenements
   resources :circuits
