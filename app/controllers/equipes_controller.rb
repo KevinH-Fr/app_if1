@@ -8,6 +8,7 @@ class EquipesController < ApplicationController
 
   # GET /equipes/1 or /equipes/1.json
   def show
+    @equipes = Equipe.all
   end
 
   # GET /equipes/new
@@ -65,6 +66,6 @@ class EquipesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def equipe_params
-      params.require(:equipe).permit(:nom, :text)
+      params.require(:equipe).permit(:nom, :text, :image)
     end
 end

@@ -3,24 +3,29 @@ class PilotesController < ApplicationController
 
   # GET /pilotes or /pilotes.json
   def index
+    @equipe = Equipe.all
     @pilotes = Pilote.all
   end
 
   # GET /pilotes/1 or /pilotes/1.json
   def show
+    @equipe = Equipe.all
   end
 
   # GET /pilotes/new
   def new
+    @equipe = Equipe.all
     @pilote = Pilote.new
   end
 
   # GET /pilotes/1/edit
   def edit
+    @equipe = Equipe.all
   end
 
   # POST /pilotes or /pilotes.json
   def create
+    @equipe = Equipe.all
     @pilote = Pilote.new(pilote_params)
 
     respond_to do |format|

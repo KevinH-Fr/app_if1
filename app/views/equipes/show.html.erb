@@ -2,6 +2,8 @@
 
 <%= render @equipe %>
 
+  <%= image_tag @equipe.image, style: "width: 400px; display: block", class: "img-fluid rounded" %> 
+
 <div>
   <%= link_to "Edit this equipe", edit_equipe_path(@equipe) %> |
   <%= link_to "Back to equipes", equipes_path %>

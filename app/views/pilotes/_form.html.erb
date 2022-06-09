@@ -24,18 +24,19 @@
   <div>
   <p>
     <%= form.label :ecurie, style: "display: block" %>
-    <%= form.select(:ecurie, options_for_select([
-                          ["Mercedes", "Mercedes"], ["RedBull", "RedBull"], ["Ferrari", "Ferrari"]], 
-                            :selected => form.object.ecurie), 
-                            :include_blank => true) %>
+    <%= form.select(:ecurie, options_from_collection_for_select(
+                  @equipe,'id', 'nom', 
+                 :selected => form.object.ecurie), 
+                 :include_blank => true )%>
+
  </p>
-    
   
+
  <%# si pas d'ecurie selectionnée, image blank, sinon logo ecurie %>
     <% if pilote.ecurie.blank?%>
       <%= image_tag 'no-image.png', alt: 'icon', width: '200' %>
     <% else %>
-      <%= image_tag pilote.ecurie + '.png', alt: 'icon', width: '200' %>
+      <%= image_tag Equipe.find(@pilote.ecurie).image, style: "width: 400px; display: block", class: "img-fluid rounded" %> 
     <% end %>
     
 

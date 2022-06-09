@@ -27,11 +27,19 @@
               <td> <%= pilote.ecurie %>    </td> 
               <td>
                 <%# si pas d'ecurie selectionnée, image blank, sinon logo ecurie %>
-                  <% if pilote.ecurie.blank?%>
-                    <%= image_tag 'no-image.png', alt: 'icon', width: '200' %>
-                  <% else %>
-                    <%= image_tag pilote.ecurie + '.png', alt: 'icon', width: '200' %>
-                  <% end %>
+                <% if pilote.ecurie.blank?%>
+                  <%= image_tag 'no-image.png', alt: 'icon', width: '200' %>
+                <% else %>
+                  <%= pilote.ecurie %>
+                  
+
+
+                   <%#=  equipe = Equipe.find(pilote.ecurie).nom %> 
+
+                   
+                  <%#= image_tag @equipe.find(pilote.ecurie).image, style: "width: 400px; display: block", class: "img-fluid rounded" %> 
+                   <%#= image_tag Equipe.find(@pilote.ecurie).image, style: "width: 400px; display: block", class: "img-fluid rounded" %> 
+                <% end %>
               </td>
             
               
