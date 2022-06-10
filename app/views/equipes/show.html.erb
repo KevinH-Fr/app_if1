@@ -2,8 +2,10 @@
 
 <%= render @equipe %>
 
-  <%= image_tag @equipe.image, style: "width: 400px; display: block", class: "img-fluid rounded" %> 
+ <%= image_tag(@equipe.logo, style: "width: 400px; display: block", class: "img-fluid rounded") if @equipe.logo.attached? %>
+ <%= image_tag(@equipe.voiture, style: "width: 400px; display: block", class: "img-fluid rounded") if @equipe.voiture.attached? %>
 
+  
 <div>
   <%= link_to "Edit this equipe", edit_equipe_path(@equipe) %> |
   <%= link_to "Back to equipes", equipes_path %>
