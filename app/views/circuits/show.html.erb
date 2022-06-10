@@ -2,6 +2,9 @@
 
 <%= render @circuit %>
 
+<%= image_tag @circuit.drapeau, style: "width: 400px; display: block", class: "img-fluid rounded" %> 
+<%= image_tag @circuit.carte, style: "width: 400px; display: block", class: "img-fluid rounded" %> 
+
 <div>
   <%= link_to "Edit this circuit", edit_circuit_path(@circuit) %> |
   <%= link_to "Back to circuits", circuits_path %>

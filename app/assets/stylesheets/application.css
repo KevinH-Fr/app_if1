@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+
+ /* format des champs : */
+
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
+}

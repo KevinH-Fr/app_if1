@@ -11,6 +11,8 @@
       <tr>
         <th>Nom</th>
         <th>Pays</th>
+        <th>Drapeau</th>
+        <th>Map</th>
         <th colspan="3">Actions</th>
       </tr>
     </thead>
@@ -20,7 +22,9 @@
             <tr>
             
            <td> <%= link_to circuit.nom, circuit %> </td>
-           <td> <%= circuit.pays %>    </td>
+           <td> <%= circuit.pays %> </td>
+           <td> <%= image_tag circuit.drapeau, style: "width: 100px; display: block", class: "img-fluid rounded" %> </td>
+           <td> <%= image_tag circuit.carte, style: "width: 100px; display: block", class: "img-fluid rounded" %> </td>
 
                 <td width="5%">
                     <%= link_to '', circuit, class:"fa-solid fa-eye btn btn-primary" %> 

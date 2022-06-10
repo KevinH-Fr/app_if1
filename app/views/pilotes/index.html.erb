@@ -33,9 +33,19 @@
                 <% end %>
               </td>
             
-              
               <td> <%= pilote.division %>  </td>
-              <td> <%= pilote.statut %>    </td>
+
+              <td>     
+
+              <% if pilote.statut == "actif" %>
+                  <ul class="green">
+                  <%= pilote.statut %>
+              <% else %>
+                  <ul class="red">
+                    <%= pilote.statut %>
+              <% end %>
+
+              </td>
 
                 <td width="5%">
                     <%= link_to '', pilote, class:"fa-solid fa-eye btn btn-primary" %> 
@@ -63,3 +73,4 @@
   <h3> Vous n'avez pas les droits...</h3>
   
 <% end %>
+

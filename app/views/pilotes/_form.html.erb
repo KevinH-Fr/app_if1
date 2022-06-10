@@ -18,7 +18,7 @@
 
   <div>
     <%= form.label :statut, style: "display: block" %>
-    <%= form.text_field :statut %>
+    <%= form.select :statut, ['actif', 'inactif']%>
   </div>
 
   <div>
@@ -31,7 +31,6 @@
 
  </p>
   
-
  <%# si pas d'ecurie selectionnée, image blank, sinon logo ecurie %>
     <% if pilote.ecurie.blank?%>
       <%= image_tag 'no-image.png', alt: 'icon', width: '200' %>
@@ -44,7 +43,7 @@
 
   <div>
     <%= form.label :division, style: "display: block" %>
-    <%= form.text_field :division %>
+    <%= form.select :division, ['1', '2']%>
   </div>
  
   <br/>

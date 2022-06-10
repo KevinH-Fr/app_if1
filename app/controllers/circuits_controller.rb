@@ -65,6 +65,6 @@ class CircuitsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def circuit_params
-      params.require(:circuit).permit(:nom, :pays)
+      params.require(:circuit).permit(:nom, :pays, :drapeau, :carte)
     end
 end
