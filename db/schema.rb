@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_10_190032) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_10_195937) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -92,6 +92,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_10_190032) do
     t.datetime "updated_at", null: false
     t.integer "pilote_id"
     t.integer "event_id"
+    t.boolean "dotd"
+    t.boolean "mt"
     t.index ["event_id"], name: "index_resultats_on_event_id"
     t.index ["pilote_id"], name: "index_resultats_on_pilote_id"
   end

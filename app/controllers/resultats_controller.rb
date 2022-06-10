@@ -74,6 +74,6 @@ class ResultatsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def resultat_params
-      params.require(:resultat).permit(:event_id, :pilote_id, :qualification, :course)
+      params.require(:resultat).permit(:event_id, :pilote_id, :qualification, :course, :dotd, :mt)
     end
 end

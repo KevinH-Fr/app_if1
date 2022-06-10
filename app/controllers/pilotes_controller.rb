@@ -30,7 +30,7 @@ class PilotesController < ApplicationController
 
     respond_to do |format|
       if @pilote.save
-        format.html { redirect_to pilote_url(@pilote), notice: "Pilote was successfully created." }
+        format.html { redirect_to pilote_url(@pilote), notice: "Le pilote a bien été créé." }
         format.json { render :show, status: :created, location: @pilote }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -43,7 +43,7 @@ class PilotesController < ApplicationController
   def update
     respond_to do |format|
       if @pilote.update(pilote_params)
-        format.html { redirect_to pilote_url(@pilote), notice: "Pilote was successfully updated." }
+        format.html { redirect_to pilote_url(@pilote), notice: "Le pilote a bien été mis à jour." }
         format.json { render :show, status: :ok, location: @pilote }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -57,7 +57,7 @@ class PilotesController < ApplicationController
     @pilote.destroy
 
     respond_to do |format|
-      format.html { redirect_to pilotes_url, notice: "Pilote was successfully destroyed." }
+      format.html { redirect_to pilotes_url, notice: "Le pilote a bien été supprimé." }
       format.json { head :no_content }
     end
   end
