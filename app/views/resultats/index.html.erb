@@ -22,7 +22,9 @@
             <tr>
             
               <td> <%= link_to resultat.event, resultat %> </td>
-              <td> <%= resultat.pilote %>    </td> 
+              <td>  <%=  pilote = Pilote.find(resultat.pilote_id).nom %>    </td> 
+
+             
               
               <td> <%= resultat.qualification %>  </td>
               <td> <%= resultat.course %>    </td>

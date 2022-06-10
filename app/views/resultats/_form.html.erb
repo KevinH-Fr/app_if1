@@ -18,7 +18,11 @@
 
   <div>
     <%= form.label :pilote, style: "display: block" %>
-    <%= form.text_field :pilote %>
+    <%= form.select(:pilote_id, options_from_collection_for_select(
+                  @pilote,'id', 'nom', 
+                 :selected => form.object.pilote_id), 
+                 :include_blank => true )%>
+
   </div>
 
   <div>

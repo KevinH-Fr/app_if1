@@ -6,7 +6,9 @@
 
   <p>
     <strong>Pilote:</strong>
-    <%= resultat.pilote %>
+    <%#= resultat.pilote_id %>
+    <%=  @pilote = Pilote.find(@resultat.pilote_id).nom %> 
+   
   </p>
 
   <p>

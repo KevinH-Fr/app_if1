@@ -3,24 +3,30 @@ class ResultatsController < ApplicationController
 
   # GET /resultats or /resultats.json
   def index
+    @pilote = Pilote.all
     @resultats = Resultat.all
   end
 
   # GET /resultats/1 or /resultats/1.json
   def show
+    @pilote = Pilote.all
   end
 
   # GET /resultats/new
   def new
+    @pilote = Pilote.all
     @resultat = Resultat.new
+   
   end
 
   # GET /resultats/1/edit
   def edit
+    @pilote = Pilote.all
   end
 
   # POST /resultats or /resultats.json
   def create
+    @pilote = Pilote.all
     @resultat = Resultat.new(resultat_params)
 
     respond_to do |format|
@@ -65,6 +71,6 @@ class ResultatsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def resultat_params
-      params.require(:resultat).permit(:event, :pilote, :qualification, :course)
+      params.require(:resultat).permit(:event, :pilote_id, :qualification, :course)
     end
 end
