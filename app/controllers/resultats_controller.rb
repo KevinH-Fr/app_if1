@@ -4,6 +4,8 @@ class ResultatsController < ApplicationController
   # GET /resultats or /resultats.json
   def index
     @pilote = Pilote.all
+    @equipe = Equipe.all
+    @event = Event.all
     @resultats = Resultat.all
   end
 
@@ -21,6 +23,7 @@ class ResultatsController < ApplicationController
 
   # GET /resultats/1/edit
   def edit
+    @event = Event.all
     @pilote = Pilote.all
   end
 
@@ -71,6 +74,6 @@ class ResultatsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def resultat_params
-      params.require(:resultat).permit(:event, :pilote_id, :qualification, :course)
+      params.require(:resultat).permit(:event_id, :pilote_id, :qualification, :course)
     end
 end
