@@ -25,20 +25,35 @@
       <% @resultats.each do |resultat| %>
             <tr>
               <td> 
-
-                <% eventID = resultat.event_id %>
-                <%= "#{Event.find(eventID).date}" " | " "#{Event.find(eventID).circuit}" " | div " "#{Event.find(eventID).division}" %>
+              
+               <% eventID = resultat.event_id %>
+                <% if eventID.nil? %>
+                <% else %>
+                  <%= "#{Event.find(eventID).date}" " | " "#{Event.find(eventID).circuit}" " | div " "#{Event.find(eventID).division}" %>
+                <% end %>
 
               </td>
-              <td> <%=  pilote = Pilote.find(resultat.pilote_id).nom %>  
+              <td>
+
+              <% if resultat.pilote_id.nil? %>
+                <% else %>
+              
+               <%=  pilote = Pilote.find(resultat.pilote_id).nom %>  
               
                <%  equipeId = Pilote.find(resultat.pilote_id).ecurie %>  
                
-               <td>  <%=  Equipe.find(equipeId).nom %>  </td> 
-               <td>  <%= image_tag Equipe.find(equipeId).image, 
+               <% end %>
+
+               <td>
+                <% if resultat.pilote_id.nil? %>
+                <td></td>
+                <% else %>
+                 <%=  Equipe.find(equipeId).nom %>  </td> 
+               <td>  <%= image_tag Equipe.find(equipeId).logo, 
                          style: "width: 400px; display: block", 
                          class: "img-fluid rounded" %>
                </td> 
+               <% end %>
 
               <td> <%= resultat.qualification %>  </td>
               <td> <%= resultat.course %>    </td>

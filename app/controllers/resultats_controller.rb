@@ -16,6 +16,7 @@ class ResultatsController < ApplicationController
 
   # GET /resultats/new
   def new
+    @event = Event.all
     @pilote = Pilote.all
     @resultat = Resultat.new
    

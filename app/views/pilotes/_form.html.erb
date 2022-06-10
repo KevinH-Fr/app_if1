@@ -35,7 +35,7 @@
     <% if pilote.ecurie.blank?%>
       <%= image_tag 'no-image.png', alt: 'icon', width: '200' %>
     <% else %>
-      <%= image_tag Equipe.find(@pilote.ecurie).image, style: "width: 400px; display: block", class: "img-fluid rounded" %> 
+      <%= image_tag Equipe.find(@pilote.ecurie).logo, style: "width: 400px; display: block", class: "img-fluid rounded" %> 
     <% end %>
     
 
