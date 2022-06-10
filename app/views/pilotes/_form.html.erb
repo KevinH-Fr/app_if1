@@ -16,10 +16,14 @@
     <%= form.text_field :nom %>
   </div>
 
+  <br/>
+
   <div>
     <%= form.label :statut, style: "display: block" %>
     <%= form.select :statut, ['actif', 'inactif']%>
   </div>
+
+  <br/>
 
   <div>
   <p>
@@ -41,6 +45,8 @@
 
   </div>
 
+  <br/>
+  
   <div>
     <%= form.label :division, style: "display: block" %>
     <%= form.select :division, ['1', '2']%>

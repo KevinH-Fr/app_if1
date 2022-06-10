@@ -6,7 +6,7 @@
 
   <p>
     <strong>Pilote:</strong>
-    <%#= resultat.pilote_id %>
+    <%= resultat.pilote_id %>
     <%=  @pilote = Pilote.find(@resultat.pilote_id).nom %> 
    
   </p>
@@ -23,12 +23,23 @@
 
   <p>
     <strong>DOTD:</strong>
-    <%= resultat.dotd %>
+    <% resultat.dotd %>  
+      <% if resultat.dotd == true %>
+          <i class="fa-solid fa-circle-check fa-xl"></i>
+      <% else %>
+          <i class="fa-solid fa-circle-xmark fa-xl"></i>
+      <% end %>
   </p>
 
   <p>
     <strong>MeilleurTour:</strong>
-    <%= resultat.mt %>
+     <% resultat.mt %> 
+        <% if resultat.mt == true %>
+           <i class="fa-solid fa-circle-check fa-xl"></i>
+        <% else %>
+           <i class="fa-solid fa-circle-xmark fa-xl"></i>
+        <% end %>   
   </p>
 
 </div>
+

@@ -57,8 +57,21 @@
 
               <td> <%= resultat.qualification %>  </td>
               <td> <%= resultat.course %>    </td>
-              <td> <%= resultat.dotd %>    </td>
-              <td> <%= resultat.mt %>    </td>
+              <td> 
+                <% resultat.dotd %>  
+                <% if resultat.dotd == true %>
+                  <i class="fa-solid fa-circle-check fa-xl"></i>
+                <% else %>
+                <% end %>
+              </td>
+              
+              <td> 
+                <% resultat.mt %> 
+                <% if resultat.mt == true %>
+                  <i class="fa-solid fa-circle-check fa-xl"></i>
+                <% else %>
+                <% end %>   
+              </td>
 
                 <%#= actions %>
                 <td width="5%">
