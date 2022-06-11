@@ -5,8 +5,10 @@
 
 
 <div>
-  <%= link_to "Edit this resultat", edit_resultat_path(@resultat) %> |
-  <%= link_to "Back to resultats", resultats_path %>
+    <%= link_to "", edit_resultat_path(@resultat), class:"fa-regular fa-pen-to-square btn btn-primary" %> |
+    <%= link_to "", resultats_path, class:"fa-solid fa-arrow-rotate-left btn btn-secondary" %> 
 
-  <%= button_to "Destroy this resultat", @resultat, method: :delete %>
+    <br/> <hr/>
+    <%= button_to "", @resultat, class:"fa-solid fa-trash-can btn btn-danger", method: :delete %>
 </div>
+

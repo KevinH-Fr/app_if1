@@ -3,6 +3,7 @@ class ResultatsController < ApplicationController
 
   # GET /resultats or /resultats.json
   def index
+    
     @pilote = Pilote.all
     @equipe = Equipe.all
     @event = Event.all
@@ -11,6 +12,7 @@ class ResultatsController < ApplicationController
 
   # GET /resultats/1 or /resultats/1.json
   def show
+    @valPoints = valPoints
     @pilote = Pilote.all
   end
 
@@ -24,6 +26,7 @@ class ResultatsController < ApplicationController
 
   # GET /resultats/1/edit
   def edit
+    @valPoints = valPoints
     @event = Event.all
     @pilote = Pilote.all
   end
@@ -68,6 +71,9 @@ class ResultatsController < ApplicationController
   end
 
   private
+
+
+
     # Use callbacks to share common setup or constraints between actions.
     def set_resultat
       @resultat = Resultat.find(params[:id])
@@ -75,6 +81,62 @@ class ResultatsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def resultat_params
-      params.require(:resultat).permit(:event_id, :pilote_id, :qualification, :course, :dotd, :mt)
+      params.require(:resultat).permit(:event_id, :pilote_id, :qualification, :course, :dotd, :mt, :score)
     end
+
+    def valPoints
+      if @resultat.course == 1 
+         pointsCourse = 25
+      else 
+        if @resultat.course == 2 
+          pointsCourse = 18 
+        else 
+          if @resultat.course == 3 
+            pointsCourse = 15 
+          else 
+            if @resultat.course == 4 
+              pointsCourse = 12 
+            else 
+              if @resultat.course == 5 
+                pointsCourse = 10 
+              else 
+                if @resultat.course == 6 
+                  pointsCourse = 8 
+                else
+                  if @resultat.course == 7 
+                    pointsCourse = 6 
+                  else
+                    if @resultat.course == 8 
+                      pointsCourse = 4 
+                    else
+                      if @resultat.course == 9 
+                        pointsCourse = 2 
+                      else 
+                        if @resultat.course == 10
+                          pointsCourse = 1 
+                        else
+                          pointsCourse = 0
+                        end
+                      end 
+                    end
+                  end 
+                end
+              end 
+            end
+          end 
+        end
+      end 
+
+      if @resultat.dotd == true 
+         scoreDotd = 1 
+      end 
+      if @resultat.mt == true 
+         scoreMt = 1 
+      end 
+
+      calculAuto = pointsCourse  + scoreDotd.to_i + scoreMt.to_i 
+      calculAuto
+      
+    end
+    
 end

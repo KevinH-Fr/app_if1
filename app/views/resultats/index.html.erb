@@ -14,6 +14,7 @@
         <th colspan="2">Ecurie</th>
         <th>Qualification</th>
         <th>Course</th>
+        <th>Score</th>
         <th>DOTD</th>
         <th>MT</th>
 
@@ -57,6 +58,7 @@
 
               <td> <%= resultat.qualification %>  </td>
               <td> <%= resultat.course %>    </td>
+
               <td> 
                 <% resultat.dotd %>  
                 <% if resultat.dotd == true %>
@@ -75,6 +77,9 @@
                 <% end %>   
               </td>
 
+               <%#= points %>
+               <td class="fw-bold fs-xl"> <%= resultat.score.to_i %>    </td>
+
                 <%#= actions %>
                 <td width="5%">
                     <%= link_to '', resultat, class:"fa-solid fa-eye btn btn-primary" %> 
@@ -83,7 +88,7 @@
                   <%= button_to '', resultat, class:"fa-solid fa-trash-can btn btn-danger", method: :delete, :onclick => "return confirm('Sûr ?')" %>
                 </td> 
                 <td width="5%">
-                    <%= link_to "", edit_resultat_path(resultat), class:"fa-regular fa-pen-to-square btn btn-secondary" %> 
+                    <%= link_to "", edit_resultat_path(resultat), class:"fa-regular fa-pen-to-square btn btn-warning" %> 
                 </td> 
 
             </tr>

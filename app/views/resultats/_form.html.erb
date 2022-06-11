@@ -50,6 +50,14 @@
     <%= form.check_box :mt %>
   </div>
 
+<div>
+    <% scoreTotal = @valPoints %> 
+    <%= form.label :score, style: "display: block" %>
+    <%= form.text_field :score, value: scoreTotal %> points
+  </div>
+    
+
+  <br/>
   <div>
      <%= form.submit "Valider", class:"btn btn-success" %>
   </div>

@@ -6,7 +6,7 @@
 
   <p>
     <strong>Pilote:</strong>
-    <%= resultat.pilote_id %>
+    <% resultat.pilote_id %>
     <%=  @pilote = Pilote.find(@resultat.pilote_id).nom %> 
    
   </p>
@@ -30,7 +30,6 @@
           <i class="fa-solid fa-circle-xmark fa-xl" style="color:red"></i>
       <% end %>
   </p>
-
   <p>
     <strong>MeilleurTour:</strong>
      <% resultat.mt %> 
@@ -39,6 +38,13 @@
         <% else %>
            <i class="fa-solid fa-circle-xmark fa-xl" style="color:red"></i>
         <% end %>   
+  </p>
+
+  <p>
+    <strong>Score:</strong>
+
+    <%= resultat.score = @valPoints %> points
+
   </p>
 
 </div>
