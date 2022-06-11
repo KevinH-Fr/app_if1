@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_11_201847) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_11_220859) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -74,6 +74,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_11_201847) do
     t.string "division"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "circuit_id"
+    t.index ["circuit_id"], name: "index_events_on_circuit_id"
   end
 
   create_table "pilotes", force: :cascade do |t|
@@ -113,6 +115,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_11_201847) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "events", "circuits"
   add_foreign_key "resultats", "events"
   add_foreign_key "resultats", "pilotes"
 end

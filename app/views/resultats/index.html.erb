@@ -14,9 +14,9 @@
         <th colspan="2">Ecurie</th>
         <th>Qualification</th>
         <th>Course</th>
-        <th>Score</th>
         <th>DOTD</th>
         <th>MT</th>
+        <th>Score</th>
 
         <th colspan="3">Actions</th>
       </tr>
@@ -30,7 +30,7 @@
                <% eventID = resultat.event_id %>
                 <% if eventID.nil? %>
                 <% else %>
-                  <%= "#{Event.find(eventID).date}" " | " "#{Event.find(eventID).circuit}" " | div " "#{Event.find(eventID).division}" %>
+                  <%= "#{Event.find(eventID).date}" " | " "#{Event.find(eventID).circuit_id}" " | div " "#{Event.find(eventID).division}" %>
                 <% end %>
 
               </td>

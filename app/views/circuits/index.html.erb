@@ -23,8 +23,8 @@
             
            <td> <%= link_to circuit.nom, circuit %> </td>
            <td> <%= circuit.pays %> </td>
-           <td> <%= image_tag circuit.drapeau, style: "width: 100px; display: block", class: "img-fluid rounded" %> </td>
-           <td> <%= image_tag circuit.carte, style: "width: 100px; display: block", class: "img-fluid rounded" %> </td>
+           <td> <%= image_tag(circuit.drapeau, style: "width: 200px; display: block", class: "img-fluid rounded") if circuit.drapeau.attached? %>  </td>
+           <td> <%= image_tag(circuit.carte, style: "width: 200px; display: block", class: "img-fluid rounded") if circuit.carte.attached? %>  </td>
 
                 <td width="5%">
                     <%= link_to '', circuit, class:"fa-solid fa-eye btn btn-primary" %> 

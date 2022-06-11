@@ -8,15 +8,18 @@ class EventsController < ApplicationController
 
   # GET /events/1 or /events/1.json
   def show
+    @circuit = Circuit.all
   end
 
   # GET /events/new
   def new
+    @circuit = Circuit.all
     @event = Event.new
   end
 
   # GET /events/1/edit
   def edit
+    @circuit = Circuit.all
   end
 
   # POST /events or /events.json
@@ -65,6 +68,6 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:date, :circuit, :division)
+      params.require(:event).permit(:date, :circuit_id, :division)
     end
 end

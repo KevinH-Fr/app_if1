@@ -4,14 +4,26 @@
     <%= event.date %>
   </p>
 
-  <p>
-    <strong>Circuit:</strong>
-    <%= event.circuit %>
-  </p>
+
 
   <p>
     <strong>Division:</strong>
     <%= event.division %>
   </p>
+
+   <p>
+    <strong>Circuit:</strong>
+    <%= event.circuit_id %>
+    <% circuitLie = event.circuit_id %>
+
+    <%= Circuit.find(circuitLie).pays %>
+    <%# si pas d'ecurie selectionnée, image blank, sinon logo ecurie %>
+      <% if circuitLie.blank?%>
+        <%= image_tag 'no-image.png', alt: 'icon', width: '200' %>
+      <% else %>
+        <%= image_tag(Circuit.find(circuitLie).drapeau, style: "width: 200px; display: block", class: "img-fluid rounded") if Circuit.find(circuitLie).drapeau.attached? %>
+
+      <% end %>
+ </p>
 
 </div>

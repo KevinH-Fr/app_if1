@@ -18,7 +18,10 @@
 
   <div>
     <%= form.label :circuit, style: "display: block" %>
-    <%= form.text_field :circuit %>
+    <%= form.select(:circuit_id, options_from_collection_for_select(
+                  @circuit,'id', 'pays', 
+                 :selected => form.object.circuit_id), 
+                 :include_blank => true )%>
   </div>
 
   <div>
