@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+
+ 
   resources :equipes
   resources :ecuries
   resources :resultats
@@ -11,6 +14,13 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
 
+  
+  get 'editions/grille'
+
+  # get 'grille'
+   #, :to => "shared/grille", :as => shared_grille
+
+ # get 'pilotes/info', :to => "pilotes/info", :as => pilote_info
 
   get 'pilotes/index'
 
@@ -19,4 +29,7 @@ Rails.application.routes.draw do
   get 'home/index'
 
   root to: "home#index"
+
+  #get "/path/to/your/mission/page", to: "static_pages#mission", as: "mission"
+
 end

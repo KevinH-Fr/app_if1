@@ -7,6 +7,14 @@ class PilotesController < ApplicationController
     @pilotes = Pilote.all
   end
 
+  def info
+    @pilotes = Pilote.all
+  end
+
+  def grille
+   
+  end
+
   # GET /pilotes/1 or /pilotes/1.json
   def show
     @equipe = Equipe.all

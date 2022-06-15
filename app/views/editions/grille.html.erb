@@ -1,0 +1,70 @@
+
+<% if user_signed_in? %>
+
+<br/>
+
+      <h1 class="fa-solid fa-user fa-2xl fw-bold fs-1"> - Grille Pilotes </h1>   
+      <br/> <br/> <hr/> <br/>
+
+       <table class="table table-striped table-bordered table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th>Pilote</th>
+        <th>Division</th>
+        <th>Statut</th>
+     
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @pilotes.each do |pilote| %>
+            <tr>
+            
+              <%# test superposition %>
+              <td>
+                <div class="contenant">
+                   <%= image_tag(Equipe.find(pilote.ecurie).logo, style: "width: 400px; display: block", class: "img-fluid rounded") %> 
+                  <div class="texte_centrer"><%=  pilote.nom %></div>
+                </div>
+              </td>
+            
+              <td> <%= pilote.division %>  </td>
+
+              <td>     
+
+              <% if pilote.statut == "actif" %>
+                  <ul class="green">
+                  <%= pilote.statut %>
+              <% else %>
+                  <ul class="red">
+                    <%= pilote.statut %>
+              <% end %>
+
+              </td>
+
+            </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<% else %>
+
+  <h3> Vous n'avez pas les droits...</h3>
+  
+<% end %>
+
+
+<style>
+.contenant {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.texte_centrer {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+}
+</style>
