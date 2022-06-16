@@ -19,8 +19,37 @@
 
 .green {
     color: green;
+    font-weight: bold;
 }
 
 .red {
     color: red;
+    font-weight: bold;
+}
+
+.darkred {
+    color: rgb(107, 9, 9);
+    font-weight: bold;
+}
+
+.blue {
+    color: rgb(12, 12, 155);
+    font-weight: bold;
+}
+
+ /* format des image ecurie avec nom pilote au dessus : */
+
+.contenant {
+  position: relative;
+  text-align: left;
+  color: white;
+}
+
+.texte_centrer {
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  transform: translate(0%, -50%);
+  font-weight: bold;
+  font-size: large;
 }
