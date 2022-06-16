@@ -3,8 +3,9 @@
 <%= render @division %>
 
 <div>
-  <%= link_to "Edit this division", edit_division_path(@division) %> |
-  <%= link_to "Back to divisions", divisions_path %>
+    <%= link_to "", edit_division_path(@division), class:"fa-regular fa-pen-to-square btn btn-primary" %> |
+    <%= link_to "", divisions_path, class:"fa-solid fa-arrow-rotate-left btn btn-secondary" %> 
 
-  <%= button_to "Destroy this division", @division, method: :delete %>
+    <br/> <hr/>
+    <%= button_to "", @division, class:"fa-solid fa-trash-can btn btn-danger", method: :delete %>
 </div>

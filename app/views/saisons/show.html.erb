@@ -3,8 +3,9 @@
 <%= render @saison %>
 
 <div>
-  <%= link_to "Edit this saison", edit_saison_path(@saison) %> |
-  <%= link_to "Back to saisons", saisons_path %>
+    <%= link_to "", edit_saison_path(@saison), class:"fa-regular fa-pen-to-square btn btn-primary" %> |
+    <%= link_to "", saisons_path, class:"fa-solid fa-arrow-rotate-left btn btn-secondary" %> 
 
-  <%= button_to "Destroy this saison", @saison, method: :delete %>
+    <br/> <hr/>
+    <%= button_to "", @saison, class:"fa-solid fa-trash-can btn btn-danger", method: :delete %>
 </div>

@@ -19,6 +19,8 @@ class LicencesController < ApplicationController
 
   # GET /licences/1/edit
   def edit
+    @pilote = Pilote.all
+    @event = Event.all
   end
 
   # POST /licences or /licences.json
