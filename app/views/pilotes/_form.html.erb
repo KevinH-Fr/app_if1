@@ -49,7 +49,10 @@
   
   <div>
     <%= form.label :division, style: "display: block" %>
-    <%= form.select :division, ['1', '2']%>
+    <%= form.select(:division_id, options_from_collection_for_select(
+                  @division,'id', 'nom', 
+                 :selected => form.object.division), 
+                 :include_blank => true )%>
   </div>
  
   <br/>

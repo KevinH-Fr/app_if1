@@ -26,7 +26,9 @@
  <br/>
   <p>
     <strong>Division:</strong>
-    <%= pilote.division %>
+    <% divisionLiee =pilote.division_id %>
+    <%= Division.find(divisionLiee).nom %>
+
   </p>
 
 </div>

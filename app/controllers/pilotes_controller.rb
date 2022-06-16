@@ -24,11 +24,13 @@ class PilotesController < ApplicationController
   def new
     @equipe = Equipe.all
     @pilote = Pilote.new
+    @division = Division.all
   end
 
   # GET /pilotes/1/edit
   def edit
     @equipe = Equipe.all
+    @division = Division.all
   end
 
   # POST /pilotes or /pilotes.json
@@ -78,6 +80,6 @@ class PilotesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pilote_params
-      params.require(:pilote).permit(:nom, :statut, :ecurie, :division)
+      params.require(:pilote).permit(:nom, :statut, :ecurie, :division_id)
     end
 end

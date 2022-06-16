@@ -33,7 +33,10 @@
                 <% end %>
               </td>
             
-              <td> <%= pilote.division %>  </td>
+              <td> 
+                <% divisionLiee =pilote.division_id %>
+                <%= Division.find(divisionLiee).nom %>
+              </td>
 
               <td>     
 

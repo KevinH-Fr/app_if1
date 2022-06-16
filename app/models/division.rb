@@ -1,3 +1,3 @@
 class Division < ApplicationRecord
-    has_many :events, :dependent => :delete_all
+    has_many :pilotes, :dependent => :delete_all 
 end

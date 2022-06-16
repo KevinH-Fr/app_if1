@@ -1,6 +1,6 @@
 class Event < ApplicationRecord
   belongs_to :saison, :optional => true
-  belongs_to :division, :optional => true
+  has_many :resultats, :dependent => :delete_all 
 
     def formatted_name
         "#{date} | #{circuit_id} | #{division}"
