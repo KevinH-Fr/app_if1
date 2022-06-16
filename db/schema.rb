@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_16_104550) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_16_105931) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -89,6 +89,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_16_104550) do
     t.index ["saison_id"], name: "index_events_on_saison_id"
   end
 
+  create_table "licences", force: :cascade do |t|
+    t.integer "penalite"
+    t.integer "recupere"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "event_id"
+    t.integer "pilote_id"
+    t.index ["event_id"], name: "index_licences_on_event_id"
+    t.index ["pilote_id"], name: "index_licences_on_pilote_id"
+  end
+
   create_table "pilotes", force: :cascade do |t|
     t.string "nom"
     t.string "statut"
@@ -139,6 +150,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_16_104550) do
   add_foreign_key "events", "circuits"
   add_foreign_key "events", "divisions"
   add_foreign_key "events", "saisons"
+  add_foreign_key "licences", "events"
+  add_foreign_key "licences", "pilotes"
   add_foreign_key "pilotes", "divisions"
   add_foreign_key "resultats", "events"
   add_foreign_key "resultats", "pilotes"

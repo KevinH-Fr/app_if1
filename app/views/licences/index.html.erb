@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Licences</h1>
+
+<div id="licences">
+  <% @licences.each do |licence| %>
+    <%= render licence %>
+    <p>
+      <%= link_to "Show this licence", licence %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New licence", new_licence_path %>
