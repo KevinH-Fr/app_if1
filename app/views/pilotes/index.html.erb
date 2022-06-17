@@ -78,13 +78,59 @@
     </tbody>
   </table>
 
-  <br>
+  <br/>
 
   <%= link_to "Nouveau pilote", new_pilote_path, class:"btn btn-primary" %>
 
    <br/> <hr/> <br/>
 
-  <%= link_to "Editer", "editions/grille", class:"btn btn-warning" %>
+ <%# menu déroulant filtrer division %>
+
+<form action="/pilotes" method="GET">
+  <label for="filter">Filter Options</label>
+  <select id="filter" name="filter" onchange="this.form.submit()">
+    <option value="">Pick a Filter Option</option>
+    <option value="team" <%= "selected" if session[:filter] == "team" %>>Filter by Team</option>
+  </select>
+ 
+  <% if session[:filter] == "team" %>
+    <select name="filter_option" onchange="this.form.submit()">
+      <option value="">Pick a Team</option>
+        <% @divisions.each do |division| %>
+          <option value="<%= division.id %>"><%= division.nom %></option>
+        <% end %>
+    </select>
+  <% end %>
+</form>
+
+<%= link_to "Clear Filter Options", pilotes_path %>
+
+ <%# resultats du filtre %>
+
+<% @divisions.each do |division| %>
+  <h2>
+    <%= division.nom %>
+  </h2>
+  <ul>
+    <% @pilotes.where(division_id: division.id).each do |pilote| %>
+      <li>
+        <%= link_to "#{pilote.nom} | #{pilote.division_id}", pilote %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+
+
+
+  <br/> <hr/> <br/>
+
+  <%= link_to "Editer", "editions/grille", :div => params[:id], class:"btn btn-warning" %>
+
+  <%#= link_to "Nouvelle commande bis", new_commande_path(:client => params[:id]) %>
+
+
 
 
 

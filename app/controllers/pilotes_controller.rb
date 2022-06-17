@@ -5,14 +5,23 @@ class PilotesController < ApplicationController
   def index
     @equipe = Equipe.all
     @pilotes = Pilote.all
+    @divisions = Division.all
+    #grille_path ="editions/grille"
+
+    initialize_search
+    #handle_search_name
+    handle_filters
+
   end
+
+
 
   def info
     @pilotes = Pilote.all
   end
 
   def grille
-   
+    
   end
 
   # GET /pilotes/1 or /pilotes/1.json
@@ -78,8 +87,39 @@ class PilotesController < ApplicationController
       @pilote = Pilote.find(params[:id])
     end
 
+   
     # Only allow a list of trusted parameters through.
     def pilote_params
       params.require(:pilote).permit(:nom, :statut, :ecurie, :division_id)
     end
+
+
+    def initialize_search
+      @pilotes = Pilote.all
+      session[:search_name] ||= params[:search_name]
+      session[:filter] = params[:filter]
+      params[:filter_option] = nil if params[:filter_option] == ""
+      session[:filter_option] = params[:filter_option]
+    end
+    
+   # def handle_search_name
+   #   if session[:search_name]
+   #     @pilotes = Pilote.where("nom LIKE ?", "%#{session[:search_name].titleize}%")
+   #     @divisions = @divisions.where(id: @pilotes.pluck(:division_id))
+   #   else
+   #     @pilotes = Pilote.all
+   #   end
+   # end
+  
+    def handle_filters
+      if session[:filter_option] && session[:filter] == "team"
+        @divisions = @divisions.where(id: session[:filter_option])
+      end
+    end
+
+    def clear
+      clear_session(:search_name, :filter_name, :filter)
+      redirect_to pilotes_path
+    end
+
 end
