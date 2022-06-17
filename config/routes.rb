@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get 'editions/grille' 
  # get 'editions/grille', :as => grille_path
 
- get '/pilotes/clear', to: 'pilotes#clear', as: 'clear'
+# get '/pilotes/clear', to: 'pilotes#clear', as: 'clear'
  get '/pilotes/pilote_search', to: 'pilotes#pilote_search', as: 'pilote_search'
 
   #grilles_path

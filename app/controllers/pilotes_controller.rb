@@ -112,7 +112,7 @@ class PilotesController < ApplicationController
    # end
   
     def handle_filters
-      if session[:filter_option] && session[:filter] == "team"
+      if session[:filter_option] # && session[:filter] == "team"
         @divisions = @divisions.where(id: session[:filter_option])
       end
     end
