@@ -1,0 +1,5 @@
+<%= search_form_for(@q, url: search_path, method: :get, class:'d-flex') do |f| %>
+    <%= f.search_field :nom_or_statut_cont, placeholder: "Search...",
+    class: "form-control me-2" %>
+    <%= f.submit "Search!", class:"btn btn-outline-success" %>
+<% end %>

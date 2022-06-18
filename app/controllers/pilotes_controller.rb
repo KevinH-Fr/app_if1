@@ -1,5 +1,7 @@
 class PilotesController < ApplicationController
-  before_action :set_pilote, only: %i[ show edit update destroy ]
+ before_action :set_pilote, only: %i[ show edit update destroy ]
+
+
 
   # GET /pilotes or /pilotes.json
   def index
@@ -9,12 +11,19 @@ class PilotesController < ApplicationController
     #grille_path ="editions/grille"
 
     initialize_search
-    #handle_search_name
+    handle_search_name
     handle_filters
+   # clear
+   clear_data
 
   end
 
+  
 
+  def clear
+    #clear_session(:search_name)
+    redirect_to pilotes_path
+  end
 
   def info
     @pilotes = Pilote.all
@@ -102,14 +111,14 @@ class PilotesController < ApplicationController
       session[:filter_option] = params[:filter_option]
     end
     
-   # def handle_search_name
-   #   if session[:search_name]
-   #     @pilotes = Pilote.where("nom LIKE ?", "%#{session[:search_name].titleize}%")
-   #     @divisions = @divisions.where(id: @pilotes.pluck(:division_id))
-   #   else
-   #     @pilotes = Pilote.all
-   #   end
-   # end
+    def handle_search_name
+      if session[:search_name]
+        @pilotes = Pilote.where("nom LIKE ?", "%#{session[:search_name].titleize}%")
+        @divisions = @divisions.where(id: @pilotes.pluck(:division_id))
+      else
+        @pilotes = Pilote.all
+      end
+    end
   
     def handle_filters
       if session[:filter_option] # && session[:filter] == "team"
@@ -117,9 +126,9 @@ class PilotesController < ApplicationController
       end
     end
 
-    def clear
-      clear_session(:search_name, :filter_name, :filter)
-      redirect_to pilotes_path
+    def clear_data
+      @clear = session[:session_key] = nil
+     
     end
 
 end

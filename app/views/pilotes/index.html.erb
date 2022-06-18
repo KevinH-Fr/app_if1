@@ -5,25 +5,30 @@
   <h1 class="fa-solid fa-user fa-2xl fw-bold fs-1"> - Pilotes </h1>   
   <br/>  <hr/>
 
-  <%# filtres sur datas %>
-  
-  <form action="/pilotes" method="GET">
-  <%#<label for="filter">Filtres : </label> %>
-  <br/>
- 
-  <%# if session[:filter] == "team" %>
-    <select name="filter_option" onchange="this.form.submit()">
-      <option value="">Choisir une division</option>
-        <% @divisions.each do |division| %>
-          <option value="<%= division.id %>"><%= division.nom %></option>
-        <% end %>
-    </select>
-  <%# end %>
-</form>
+        <%# zone recherce pilote %>
+        <form action="/pilotes" method="GET">
+          <input type="text" name="search_name" >
+          <input type="submit" value="Chercher" class="btn btn-primary">
+        </form>
 
-<br/>
-<%= link_to "Effacer filtrer", pilotes_path, class:"btn btn-outline-danger" %> 
-  
+        <%# filtres sur datas %>
+        <form action="/pilotes" method="GET">
+        <%#<label for="filter">Filtres : </label> %>
+        <%# if session[:filter] == "team" %>
+          <select name="filter_option" onchange="this.form.submit()">
+            <option value="">Choisir une division</option>
+              <% @divisions.each do |division| %>
+                <option value="<%= division.id %>"><%= division.nom %></option>
+              <% end %>
+          </select>
+        <%# end %>
+      </form>
+      <%#= link_to "Effacer filtrer", clear_path, class:"btn btn-outline-danger" %> 
+
+      <%#= link_to "testClearSession", clear_session_path  %>
+
+ <%#= link_to 'Click here to delete your widget session!', widget_session_path(), method: :delete %>
+
   <br/> <hr/> <br/>
 
   <%# tableau datas %>
