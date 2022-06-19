@@ -6,11 +6,31 @@
       <h1 class="fa-solid fa-road fa-2xl fw-bold fs-1"> - Circuits </h1>   
       <br/> <br/> <hr/> <br/>
 
+      <div class="container">
+
+      <div class="row">
+        <div class="col-md-auto">
+            <%= search_form_for(@q, url: circuits_path, method: :get, class:'d-flex') do |f| %>
+                <%= f.search_field :nom_or_pays_cont, placeholder: "Recherche...",
+                    class: "form-control me-2" %>
+                <%= f.submit "Rechercher", class:"btn btn-outline-success" %>
+            <% end %>
+        </div>
+         <div class="col-md-auto">
+            <%= search_form_for(@q, url: circuits_path, method: :get, class:'d-flex') do |f| %>
+                <%= f.hidden_field :nom_eq, value: "" %>
+                <%= f.submit "Effacer filtres", class:"btn btn-outline-danger" %>
+            <% end %>
+        </div>
+      </div>
+
+  <br/> <br/> <hr/> <br/>
+  
   <table class="table table-striped table-bordered table-hover">
     <thead class="table-dark">
       <tr>
-        <th>Nom</th>
-        <th>Pays</th>
+        <th><%= sort_link(@q, :nom, "Nom", default_order: :asc) %></th>
+        <th><%= sort_link(@q, :pays, "Pays", default_order: :asc) %></th>
         <th>Drapeau</th>
         <th>Map</th>
         <th colspan="3">Actions</th>

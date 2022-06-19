@@ -4,6 +4,9 @@ class CircuitsController < ApplicationController
   # GET /circuits or /circuits.json
   def index
     @circuits = Circuit.all
+
+    @q = Circuit.ransack(params[:q])
+    @circuits = @q.result(distinct: true)
   end
 
   # GET /circuits/1 or /circuits/1.json
