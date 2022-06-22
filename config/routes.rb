@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   get 'search', to: "search#index"
 
-
-  
   resources :licences
   resources :divisions
   resources :saisons
@@ -14,12 +12,11 @@ Rails.application.routes.draw do
   resources :circuits
   devise_for :users
   resources :pilotes
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
-
-  
+ 
   get 'editions/grille' 
+  get '/editions/grilletest3'
+
  # get 'editions/grille', :as => grille_path
 
  get '/pilotes/clear', to: 'pilotes#clear', as: 'clear'

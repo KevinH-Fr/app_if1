@@ -15,7 +15,9 @@ class PilotesController < ApplicationController
   end
 
   def grille
-    
+  end
+
+  def grilletest3
   end
 
   # GET /pilotes/1 or /pilotes/1.json

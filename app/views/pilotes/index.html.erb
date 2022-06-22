@@ -123,16 +123,19 @@
 
   <%= link_to "Editer", "editions/grille", :div => params[:id], class:"btn btn-warning" %>
 
-  <%#= link_to "Nouvelle commande bis", new_commande_path(:client => params[:id]) %>
+
+    <br/>
 
 
-
-
+   <%= link_to "Bouton unique vers edition", "editions/grilletest3", class:"btn btn-warning" %>
 
 <% else %>
 
   <h3> Vous n'avez pas les droits...</h3>
   
 <% end %>
+
+
+
 
 
