@@ -1,0 +1,46 @@
+<%= form_with(model: post) do |form| %>
+  <% if post.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :body, style: "display: block" %>
+    <%= form.text_area :body %>
+  </div>
+
+  <div id="turbo-stream-target">hello </div>
+
+<div data-controller="form-element">
+  <%= form.button "Validate", formaction: new_post_path, 
+      formmethod: :get, data: {turbo_frame: :passcode_field, 
+      form_element_target: "submitbtn"} %>
+     <div>
+        <%= form.label :access, style: "display: block" %>
+        <%= form.select :access, Post.accesses, {include_blank: true},
+         { data: { action: "change->form-element#remotesubmit"}} %>
+      </div>
+</div>
+
+<%= turbo_frame_tag :passcode_field do %>
+  <%= post.passcode_protected? %>
+  <% if post.passcode_protected? %>
+    <%= turbo_stream.update "turbo-stream-target", html: Time.zone.now %>
+    <div>
+      <%= form.label :passcode, style: "display: block" %>
+      <%= form.text_field :passcode, value: form.object.access %>
+    </div>
+  <% end %>
+<% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

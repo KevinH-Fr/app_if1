@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nom: MyString
+  numero: 1
+  periode: 2022-06-15
+
+two:
+  nom: MyString
+  numero: 1
+  periode: 2022-06-15

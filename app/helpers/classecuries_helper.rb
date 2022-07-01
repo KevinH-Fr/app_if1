@@ -1,0 +1,2 @@
+module ClassecuriesHelper
+end
